@@ -1,0 +1,21 @@
+@import "_base";
+
+body {
+  text-align: center;
+  background: #EEF;
+  font-family: sans-serif;
+}
+
+input, button {
+  font-family: 'Ubuntu Mono', monospace;
+  border: solid 1px #00F; background: rgba(0,0,255, 0.1);
+  padding: 0.2em 0.4em; text-align: right; color:#00F;
+  font-size:1em; line-height:1em;
+}
+#dropped-file { display: none; }
+
+#drop-zone {
+  padding:3em;
+  border: dashed 2px #808080;
+  &.hover { border: solid 2px #00F; }
+}

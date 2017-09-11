@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPFS Upload</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./favicon.ico">
+    <script type="text/javascript" src="js/ext/jquery.min.js"></script>
+</head>
+<body>
+    <h1>IPFS Upload</h1>
+    <form id="upload">
+    <input type="file" id="dropped-file" name="dropped-file[]" multiple="multiple" />
+    <div id="drop-zone">Drop file here</div>
+    <div id="current-upload"></div>
+    <p>Everything looking good? Then go ahead and <button id="upload-btn">Upload</button>! Or <button id="clear-btn">Clear</button> if you want to start over.</p>
+    </form>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
