@@ -59,8 +59,16 @@ $(document).ready(function() {
      function parseFile() {
        if (index >= allFiles.length) return;
        var fileObj = allFiles[index];
+       if (knownFiles.indexOf(fileObj.name) >= 0) {
+         // File already in the bundle
+         index++;
+         parseFile();
+         return;
+       }
+       // Otherwise, add the file to the bundle
        postToIPFS(fileObj).then(function (newHash) {
          console.log('New Hash', newHash);
+         knownFiles.push(fileObj.name);
          addToFileList(fileObj);
          currentHash = newHash;
          updateResultLinks();
@@ -90,6 +98,7 @@ $(document).ready(function() {
      e.preventDefault();
      e.stopPropagation();
      currentHash = 'QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn';
+     knownFiles = [];
      $('#current-upload').hide().find('#file-list').html('');
      $('#upload-result').hide();
    });
