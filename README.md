@@ -1,7 +1,7 @@
 # IPFS Upload
 Simple tool to facilitate uploading files to IPFS, using the IPFS nodes that are [Writable Gateways](https://discuss.ipfs.io/t/writeable-http-gateways/210).
 
-This application is deployed on IPFS under the hash [`QmejJYQe6auucdK6RqCe71tFGmi7c3jSLrvcJs5rNucz5W`](https://ipfs.io/ipfs/QmejJYQe6auucdK6RqCe71tFGmi7c3jSLrvcJs5rNucz5W/index.html)
+This application is deployed on IPFS under the hash [`QmQ2tAdcBfv6AymYxUTjpmcB3M4Y8YsS2rMmJCd7QZN3GU`](https://ipfs.io/ipfs/QmQ2tAdcBfv6AymYxUTjpmcB3M4Y8YsS2rMmJCd7QZN3GU/index.html)
 
 # Developing
 Install the required Node modules by running

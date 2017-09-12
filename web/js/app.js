@@ -30,6 +30,7 @@ function updateResultLinks() {
   var $container = $('#upload-result');
   $container.find('#upload-url').html('<a target="_blank" href="/ipfs/' + currentHash + '">/ipfs/' + currentHash + '</a>');
   $container.find('#eternum-link').attr('href', 'https://www.eternum.io/pin/' + currentHash);
+  $container.find('#ipfsstore-link').attr('href', 'http://ipfsstore.it/submit.php?hash=' + currentHash);
   $container.show();
 }
 
