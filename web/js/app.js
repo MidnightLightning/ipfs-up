@@ -53,15 +53,23 @@ $(document).ready(function() {
      e.stopPropagation();
      $(this).removeClass('hover');
      var dt = e.originalEvent.dataTransfer;
-     var fileObj = dt.files[0];
-     postToIPFS(fileObj).then(function(newHash) {
-       console.log('New Hash', newHash);
-       addToFileList(fileObj);
-       currentHash = newHash;
-       updateResultLinks();
-     }, function(err, msg) {
-       console.error(err, msg);
-    });
+     var allFiles = dt.files;
+     var index = 0;
+     function parseFile() {
+       if (index > allFiles.length) return;
+       var fileObj = allFiles[index];
+       postToIPFS(fileObj).then(function (newHash) {
+         console.log('New Hash', newHash);
+         addToFileList(fileObj);
+         currentHash = newHash;
+         updateResultLinks();
+         index++;
+         parseFile();
+       }, function (err, msg) {
+         console.error(err, msg);
+       });
+     }
+     parseFile();
 
      /*
      for (var i = 0; i < dt.files.length; i++) {
