@@ -1,4 +1,5 @@
 var currentHash = 'QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn'; // Start with empty folder
+var knownFiles = [];
 
 function postToIPFS(fileObj) {
   var def = $.Deferred();
@@ -27,7 +28,7 @@ function addToFileList(fileObj) {
 
 function updateResultLinks() {
   var $container = $('#upload-result');
-  $container.find('#upload-url').html('<a target="_top" href="/ipfs/' + currentHash + '">/ipfs/' + currentHash + '</a>');
+  $container.find('#upload-url').html('<a target="_blank" href="/ipfs/' + currentHash + '">/ipfs/' + currentHash + '</a>');
   $container.find('#eternum-link').attr('href', 'https://www.eternum.io/pin/' + currentHash);
   $container.show();
 }
@@ -56,7 +57,7 @@ $(document).ready(function() {
      var allFiles = dt.files;
      var index = 0;
      function parseFile() {
-       if (index > allFiles.length) return;
+       if (index >= allFiles.length) return;
        var fileObj = allFiles[index];
        postToIPFS(fileObj).then(function (newHash) {
          console.log('New Hash', newHash);
